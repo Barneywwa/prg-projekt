@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { M_PLUS_Rounded_1c } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
+const rounded = M_PLUS_Rounded_1c({
+  weight: ["100", "300", "400", "500", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "PRG-ShopGeoportal",
@@ -16,15 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body className={inter.className}>
-        <nav className="flex justify-end w-[90%] mx-auto mt-5">
-          <Link href="/about">
-            About Server
-          </Link>
+      <body className={rounded.className}>
+        <nav className="flex justify-between w-[90%] mx-auto mt-5 font-bold">
+          <Link href="/">Home</Link>
+          <Link href="/about">About Server</Link>
         </nav>
-        <main className="max-w-4xl mx-auto">
-          {children}
-        </main>
+        <main className="max-w-5xl mx-auto">{children}</main>
       </body>
     </html>
   );
