@@ -1,38 +1,37 @@
-import Image from "next/image";
-import ShopImagePath from "@/public/images/shop.png";
-import WarehouseImagePath from "@/public/images/warehouse.png";
-import WorkerImagePath from "@/public/images/worker.png";
+import AddWarehouseForm from "@/components/AddWarehouseForm";
+import DeleteWarehouseButton from "@/components/DeleteWarehouseButton";
+import supabase from "@/supabase";
+import { useState } from "react";
 
-export default function WarehousePage() {
+export default async function WarehousePage() {
+  const { data } = await supabase.from("warehouses").select("");
+
+  console.log(data);
+
   return (
-    <div className="flex flex-col min-h-[90vh] justify-center items-center text-center gap-16">
-      <h1 className="text-8xl font-bold">Choose service</h1>
-      <div className="flex">
-        <div>
-          <div className="w-80 h-80 relative mx-auto">
-            <Image src={ShopImagePath} alt="" fill />
-          </div>
-          <button className="uppercase bg-[#19446B] text-white px-9 py-2 text-3xl rounded-lg hover:bg-[#92a9d0] ">
-            Oddziały sklepów
-          </button>
-        </div>
-        <div>
-          <div className="w-80 h-80 relative mx-auto">
-            <Image src={WorkerImagePath} alt="" fill />
-          </div>
-          <button className="uppercase bg-[#19446B] text-white px-9 py-2 text-3xl rounded-lg hover:bg-[#92a9d0] ">
-            Pracownicy
-          </button>
-        </div>
-        <div>
-          <div className="w-80 h-80 relative mx-auto">
-            <Image src={WarehouseImagePath} alt="" fill />
-          </div>
-          <button className="uppercase bg-[#19446B] text-white px-9 py-2 text-3xl rounded-lg hover:bg-[#92a9d0] ">
-            Oddziały Magazynowe
-          </button>
-        </div>
-      </div>
+    <div className="min-h-screen max-w-7xl mx-auto">
+      <table className="w-full">
+        <tbody>
+          <tr className="border-b border-zinc-600">
+            <th>Name</th>
+            <th>Longitude</th>
+            <th>Latitude</th>
+          </tr>
+          {data?.map((warehouse: any) => {
+            return (
+              <tr key={warehouse.id} className="border-b border-zinc-600 py-4">
+                <th>{warehouse.name}</th>
+                <th>{warehouse.longitude}</th>
+                <th>{warehouse.latitude}</th>
+                <th>
+                  <DeleteWarehouseButton id={warehouse.id} />
+                </th>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <AddWarehouseForm />
     </div>
   );
 }
