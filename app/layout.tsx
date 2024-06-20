@@ -1,15 +1,13 @@
-import type { Metadata } from "next";
-import { M_PLUS_Rounded_1c } from "next/font/google";
-import "./globals.css";
-import Link from "next/link";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
-const rounded = M_PLUS_Rounded_1c({
-  weight: ["100", "300", "400", "500", "700"],
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "PRG-ShopGeoportal",
+  title: 'PRG - Geoportal',
 };
 
 export default function RootLayout({
@@ -18,13 +16,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl">
-      <body className={rounded.className}>
-        <nav className="flex justify-between w-[90%] mx-auto mt-5 font-bold">
-          <Link href="/">Home</Link>
-          <Link href="/about">About Server</Link>
+    <html lang="en" className="min-h-screen">
+      <body
+        className={`${inter.className} bg-gradient-to-r from-emerald-400 to-green-500`}
+      >
+        <nav className="flex justify-between max-w-7xl mx-auto px-8 mt-16 rounded-t-xl py-8 bg-white">
+          <Link href="/">
+            <Button variant="secondary">Strona Główna</Button>
+          </Link>
+          <Link href="/about">
+            <Button variant="secondary">O Serwerze</Button>
+          </Link>
         </nav>
-        <main className="max-w-5xl mx-auto">{children}</main>
+        {children}
       </body>
     </html>
   );
