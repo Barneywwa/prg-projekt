@@ -1,45 +1,37 @@
-import Image from "next/image";
-import ShopImagePath from "@/public/images/shop.png";
-import WarehouseImagePath from "@/public/images/warehouse.png";
-import WorkerImagePath from "@/public/images/worker.png";
-import Link from "next/link";
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col min-h-[90vh] justify-center items-center text-center gap-16">
-      <h1 className="text-8xl font-bold">Choose service</h1>
-      <div className="flex">
-        <div>
-          <div className="w-80 h-80 relative mx-auto">
-            <Image src={ShopImagePath} alt="" fill />
-          </div>
-          <Link href="/shops">
-            <button className="uppercase bg-[#19446B] text-white px-9 py-2 text-3xl rounded-lg hover:bg-[#92a9d0] ">
-              Oddziały sklepów
-            </button>
-          </Link>
-        </div>
-        <div>
-          <div className="w-80 h-80 relative mx-auto">
-            <Image src={WorkerImagePath} alt="" fill />
+    <main className="flex flex-col max-w-7xl justify-center items-center mx-auto py-44 px-8 bg-white">
+      <h1 className="text-4xl font-bold mb-10">Wybierz usługę</h1>
+      <div className="flex gap-24">
+        <div className="flex flex-col items-center justify-between gap-4">
+          <div className="relative w-48 h-48">
+            <Image src="/employee.webp" alt="" fill />
           </div>
           <Link href="/employees">
-            <button className="uppercase bg-[#19446B] text-white px-9 py-2 text-3xl rounded-lg hover:bg-[#92a9d0] ">
-              Pracownicy
-            </button>
+            <Button>Pracownicy</Button>
           </Link>
         </div>
-        <div>
-          <div className="w-80 h-80 relative mx-auto">
-            <Image src={WarehouseImagePath} alt="" fill />
+        <div className="flex flex-col items-center justify-between gap-4">
+          <div className="relative w-48 h-48">
+            <Image src="/store.webp" alt="" fill />
           </div>
-          <Link href="/warehouse">
-            <button className="uppercase bg-[#19446B] text-white px-9 py-2 text-3xl rounded-lg hover:bg-[#92a9d0] ">
-              Oddziały Magazynowe
-            </button>
+          <Link href="/shops">
+            <Button>Sklepy</Button>
+          </Link>
+        </div>
+        <div className="flex flex-col items-center justify-between gap-4">
+          <div className="relative w-48 h-48">
+            <Image src="/warehouse.webp" alt="" fill />
+          </div>
+          <Link href="/warehouses">
+            <Button>Magazyny</Button>
           </Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
