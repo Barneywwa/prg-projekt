@@ -171,7 +171,7 @@ export default function Map({
                           {shop.name}
                         </h3>
                         <p>
-                          <strong>Magazyn:</strong> {shop.warehouse}
+                          <strong>Dostawca:</strong> {shop.warehouse}
                         </p>
                       </div>
                     </Popup>
@@ -212,7 +212,7 @@ export default function Map({
                           {employee.first_name} {employee.last_name}
                         </h3>
                         <p>
-                          <strong>Sklep:</strong> {employee.shop}
+                          <strong>Pracownik oddziału:</strong> {employee.shop}
                         </p>
                       </div>
                     </Popup>
