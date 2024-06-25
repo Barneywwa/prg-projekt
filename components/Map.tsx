@@ -136,12 +136,6 @@ export default function Map({
                         >
                           {warehouse.name}
                         </h3>
-                        <p>
-                          <strong>Longitude:</strong> {warehouse.longitude}
-                        </p>
-                        <p>
-                          <strong>Latitude:</strong> {warehouse.latitude}
-                        </p>
                       </div>
                     </Popup>
                   </Marker>
@@ -177,13 +171,7 @@ export default function Map({
                           {shop.name}
                         </h3>
                         <p>
-                          <strong>Warehouse:</strong> {shop.warehouse}
-                        </p>
-                        <p>
-                          <strong>Longitude:</strong> {shop.longitude}
-                        </p>
-                        <p>
-                          <strong>Latitude:</strong> {shop.latitude}
+                          <strong>Magazyn:</strong> {shop.warehouse}
                         </p>
                       </div>
                     </Popup>
@@ -224,13 +212,7 @@ export default function Map({
                           {employee.first_name} {employee.last_name}
                         </h3>
                         <p>
-                          <strong>Shop:</strong> {employee.shop}
-                        </p>
-                        <p>
-                          <strong>Longitude:</strong> {employee.longitude}
-                        </p>
-                        <p>
-                          <strong>Latitude:</strong> {employee.latitude}
+                          <strong>Sklep:</strong> {employee.shop}
                         </p>
                       </div>
                     </Popup>
