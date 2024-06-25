@@ -1,6 +1,6 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-const MapWithoutSSR = dynamic(() => import('./Map'), { ssr: false });
+const MapWithoutSSR = dynamic(() => import("./Map"), { ssr: false });
 
 export function DynamicMap({ warehouses, shops, employees }: any) {
   return (

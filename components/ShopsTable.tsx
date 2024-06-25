@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Table,
@@ -7,27 +7,27 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
+} from "@/components/ui/table";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { supabase } from "@/lib/supabase";
 
 export function ShopsTable({ shops }: any) {
   const router = useRouter();
 
   useEffect(() => {
     const channel = supabase
-      .channel('realtime shops')
+      .channel("realtime shops")
       .on(
-        'postgres_changes',
+        "postgres_changes",
         {
-          event: '*',
-          schema: 'public',
-          table: 'shops',
+          event: "*",
+          schema: "public",
+          table: "shops",
         },
         (_payload) => {
           router.refresh();
-        },
+        }
       )
       .subscribe();
 
